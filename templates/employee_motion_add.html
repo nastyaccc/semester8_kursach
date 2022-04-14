@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add employee motion</title>
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+<form method="POST">
+    <table>
+        <h1>Add {{ type }}</h1>
+        <tbody>
+        <tr>
+            <td>Employee</td>
+            <td><select name="id_employee">
+                {% for employee in employees %}
+                    <option value="{{ employee.id }}">{{ employee.ss_name }}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+        <tr>
+            <td>Position</td>
+            <td><select name="id_position">
+                {% for position in positions %}
+                    <option value="{{ position.id }}">{{ position.name }}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+        <tr>
+            <td>Reason</td>
+            <td><select name="id_reason">
+                {% for reason in reasons %}
+                    <option value="{{ reason.id }}">{{ reason.name }}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+        <tr>
+            <td>Order number</td>
+            <td><input type="text" name="order" value=""/></td>
+        </tr>
+        <tr>
+            <td>Order date</td>
+            <td><input type="date" name="date_order" value=""/></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Add"/></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>

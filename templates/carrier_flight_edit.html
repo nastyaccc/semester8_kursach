@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit carrier flight</title>
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+<form method="POST">
+    <table>
+        <h1>Edit {{ model.name }}</h1>
+        <tbody>
+        <tr>
+            <td>Id</td>
+            <td>{{ model.id }}<input type="hidden" name="id" value="{{ model.id }}"/></td>
+        </tr>
+        <tr>
+            <td>Carrier</td>
+            <td><select name="id_carrier">
+                {% for carrier in carriers %}
+                    <option value="{{ carrier.id }}" {% if carrier.id == model.id_carrier %}selected{% endif %}>{{ carrier.name }}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+        <tr>
+            <td>Flight number</td>
+            <td><input type="text" name="numb_flight" value="{{ model.numb_flight }}"/></td>
+        </tr>
+        <tr>
+            <td>Flight date</td>
+            <td><input type="date" name="date_f" value="{{ model.date_f|date:'d-m-Y' }}"/></td>
+        </tr>
+        <tr>
+            <td>Aircraft type</td>
+            <td><select name="id_aircraft_type">
+                {% for aircraft_type in aircraft_types %}
+                    <option value="{{ aircraft_type.id }}" {% if aircraft_type.id == model.id_aircraft_type %}selected{% endif %}>{{ aircraft_type.name }}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+        <tr>
+            <td>Number of free seats</td>
+           <td><input type="number" min="0" name="free_seats" value="{{ model.free_seats }}"/></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Save"/></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>

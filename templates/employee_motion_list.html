@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ name }}</title>
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+<table>
+    <h1>{{ name.capitalize }}</h1>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Employee's id</th>
+        <th>Position's id</th>
+        <th>Order number</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for model in models %}
+        <tr>
+            <td>{{ model.id }}</td>
+            <td>{{ model.idemployee }}</td>
+            <td>{{ model.idposition }}</td>
+            <td>{{ model.oorder }}</td>
+            <td><a href="/{{ name }}/edit/{{ model.id }}">Edit</a></td>
+            <td><a href="/{{ name }}/delete/{{ model.id }}">Delete</a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<a href="/{{ name }}/add/">Add</a><br>
+<a href="/main/">Back to the main page</a>
+</body>
+</html>

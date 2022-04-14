@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit employee motion</title>
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+<form method="POST">
+    <table>
+        <h1>Edit {{ model.name }}</h1>
+        <tbody>
+        <tr>
+            <td>Id</td>
+            <td>{{ model.id }}<input type="hidden" name="id" value="{{ model.id }}"/></td>
+        </tr>
+        <tr>
+            <td>Employee</td>
+            <td><select name="id_employee">
+                {% for employee in employees %}
+                    <option value="{{ employee.id }}" {% if employee.id == model.id_employee %}selected{% endif %}>{{ employee.s_name }}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+        <tr>
+            <td>Position</td>
+            <td><select name="id_position">
+                {% for position in positions %}
+                    <option value="{{ position.id }}" {% if position.id == model.id_position %}selected{% endif %}>{{ position.name }}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+        <tr>
+            <td>Reason</td>
+            <td><select name="id_reason">
+                {% for reason in reasons %}
+                    <option value="{{ reason.id }}" {% if reason.id == model.id_reason %}selected{% endif %}>{{ reason.name }}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+        <tr>
+            <td>Order number</td>
+            <td><input type="text" name="order" value="{{ model.order }}"/></td>
+        </tr>
+        <tr>
+            <td>Order date</td>
+            <td><input type="date" name="date_order" value="{{ model.date_order|date:'d-m-Y' }}"/></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Save"/></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>

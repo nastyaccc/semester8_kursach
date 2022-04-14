@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add client</title>
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+<form method="POST">
+    <table>
+        <h1>Add {{ type }}</h1>
+        <tbody>
+        <tr>
+            <td>Surname</td>
+            <td><input type="text" name="s_name" value=""/></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="f_name" value=""/></td>
+        </tr>
+        <tr>
+            <td>Middle name</td>
+            <td><input type="text" name="t_name" value=""/></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><input type="text" name="phone" value=""/></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Add"/></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>

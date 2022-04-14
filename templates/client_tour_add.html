@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add tour</title>
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+<form method="POST">
+    <table>
+        <h1>Add {{ type }}</h1>
+        <tbody>
+        <tr>
+            <td>Route</td>
+            <td><select name="id_routes">
+                {% for route in routes %}
+                    <option value="{{ route.id }}">{{ route.name }}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+        <tr>
+            <td>Client's order</td>
+            <td><select name="id_client_orders">
+                {% for client_order in client_orders %}
+                    <option value="{{ client_order.id }}">{{ client_order.date_order }}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+        <tr>
+            <td>Carrier flight</td>
+            <td><select name="id_carrier_flights">
+                {% for carrier_flight in carrier_flights %}
+                    <option value="{{ carrier_flight.id }}">{{ carrier_flight.numb_flight }}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+        <tr>
+            <td>Seat</td>
+            <td><input type="text" name="seat" value=""/></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Add"/></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>

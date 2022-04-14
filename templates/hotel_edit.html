@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit {{ type }}</title>
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+<form method="POST">
+    <table>
+        <h1>Edit {{ type }}</h1>
+        <tbody>
+        <tr>
+            <td>Id</td>
+            <td>{{ model.id }}<input type="hidden" name="id" value="{{ model.id }}"/></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="name" value="{{ model.name }}"/></td>
+        </tr>
+        <tr>
+            <td>Hotel type</td>
+            <td><select name="id_hotel_type">
+                {% for hotel_type in hotel_types %}
+                    <option value="{{ hotel_type.id }}" {% if hotel_type.id == model.id_hotel_type %}selected{% endif %}>{{ hotel_type.name }}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Save"/></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>

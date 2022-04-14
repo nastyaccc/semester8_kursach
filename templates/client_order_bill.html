@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ name }}</title>
+    <link rel="stylesheet" href="/static/bill.css">
+</head>
+<body>
+<form method="POST">
+    <table>
+        <h2>ООО Туроператор "Coral Travel"</h2>
+        <thead>
+        <tr>
+            <th>ИНН</th>
+            <th>КПП</th>
+            <th>Получатель</th>
+            <th>Сч. №</th>
+            <th>БИК</th>
+            <th>Банк получателя</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>2363542264</td>
+            <td>39711327</td>
+            <td>ООО "КОНТИНЕНТ"</td>
+            <td>494123456787544567863</td>
+            <td>044525226</td>
+            <td>АО «Тинькофф Банк»</td>
+        </tr>
+        </tbody>
+    </table>
+    <table>
+        <h2>Счет от {{ model.date_order|date:'d-m-Y' }}</h2>
+        <thead>
+        <tr>
+            <th>Плательщик</th>
+            <th>Контакты плательщика</th>
+            <th>Дата заказа</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                {{ model.client_model.s_name }} {{ model.client_model.f_name }} {{ model.client_model.t_name }}
+            </td>
+            <td> {{ model.client_model.phone }}</td>
+            <td>{{ model.date|date:'d-m-Y' }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <table>
+        <h2>Туры, включенные в заказ:</h2>
+        <thead>
+        <tr>
+            <th>Название тура</th>
+            <th>Стоимость</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Невский Берег 122</td>
+            <td>23599 руб</td>
+        </tr>
+        <tr>
+            <td>Классический Санкт-Петербург</td>
+            <td>13230 руб</td>
+        </tr>
+        </tbody>
+    </table>
+    <h3>Итоговая стоимость: 36829 руб</h3>
+    <h3>Крайний срок оплаты: 30.01.2022</h3>
+    <h3>Ген. директор: __________________</h3>
+    <h3>Главный бухгалтер: _____________</h3>
+    <input type="submit" value="Print"/>
+</form>
+</body>
+</html>

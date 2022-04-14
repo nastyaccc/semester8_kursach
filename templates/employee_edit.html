@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit an employee</title>
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+<form method="POST">
+    <table>
+        <h1>Edit {{ model.name }}</h1>
+        <tbody>
+        <tr>
+            <td>Id</td>
+            <td>{{ model.id }}<input type="hidden" name="id" value="{{ model.id }}"/></td>
+        </tr>
+        <tr>
+            <td>Surname</td>
+            <td><input type="text" name="s_name" value="{{ model.s_name }}"/></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="f_name" value="{{ model.f_name }}"/></td>
+        </tr>
+        <tr>
+            <td>Middle name</td>
+            <td><input type="text" name="t_name" value="{{ model.t_name }}"/></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><input type="text" name="address" value="{{ model.address }}"/></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><input type="text" name="phone" value="{{ model.phone }}"/></td>
+        </tr>
+        <tr>
+            <td>Birthday</td>
+            <td><input type="date" name="hb_day" value="{{ model.hb_day|date:'d-m-Y' }}"/></td>
+        </tr>
+        <tr>
+            <td>Position</td>
+            <td><select name="id_position">
+                {% for position in positions %}
+                    <option value="{{ position.id }}" {% if position.id == model.id_position %}selected{% endif %}>{{ position.name }}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+        <tr>
+            <td>Salary</td>
+            <td><input type="number" min="0" name="salary" value="{{ model.salary }}"/></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Save"/></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>
